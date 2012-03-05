@@ -35,9 +35,10 @@ Class.extend = function (extendedProps) {
 	ExtendedClass.extend = Class.extend;
 	ExtendedClass.prototype.ancestor = this.prototype;
 
-	for (prop in extendedProps)
-	{
-		ExtendedClass.prototype[prop] = extendedProps[prop];
+	for (prop in extendedProps) {
+		if (extendedProps.hasOwnProperty(prop)) {
+			ExtendedClass.prototype[prop] = extendedProps[prop];
+		}
 	}
 
 	return ExtendedClass;
