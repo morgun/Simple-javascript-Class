@@ -20,8 +20,9 @@ Class.extend = function (extendedProps) {
 		prop;
 
 	ExtendedClass = function () {
+		//console.log('arguments', arguments);
 		if (!constructing && typeof this.construct === 'function') {
-			this.construct();
+			this.construct.apply(this, arguments);
 		}
 
 	};
